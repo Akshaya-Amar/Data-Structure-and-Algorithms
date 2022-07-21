@@ -5,7 +5,7 @@
 ### Linked List<br>
 * [Singly Linked List](https://github.com/Akshaya-Amar/Data-Structure-and-Algorithms#singly-linked-list)
 
-## Singly Linked List [Program](./Linked%20List/Singly%20Linked%20List/Singly_Linked_List.c) <br>
+## Singly Linked List - [Program](./Linked%20List/Singly%20Linked%20List/Singly_Linked_List.c) <br>
 
 | # | Operations | Time Complexity |
 |:---:| ----- | :--------: |
