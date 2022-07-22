@@ -11,10 +11,10 @@ struct node *insert_at_beg(struct node*);
 struct node *insert_at_end(struct node*);
 struct node *insert_at_pos(struct node*, int);
 struct node *del_at_beg(struct node*);
-struct node *del_at_end(struct node*);
+struct node *del_at_end(struct node**);
 struct node *del_at_pos(struct node*, int);
-struct node *del_list(struct node* head);
-struct node *reverse(struct node* head);
+struct node *del_list(struct node*);
+struct node *reverse(struct node*);
 void display(struct node*);
 void count(struct node*);
 
@@ -85,7 +85,7 @@ int main() {
             break;
 
             case 5:
-            head = del_at_end(head);
+            tail = del_at_end(&head);
             if(head != NULL) {
                 display(head);
             }
@@ -228,36 +228,32 @@ struct node *del_at_beg(struct node *head) {
 }
 
 // O(n) - linear time
-struct node *del_at_end(struct node *head) {
+struct node *del_at_end(struct node **head) {
 
-    if(head == NULL) {
+    if(*head == NULL) {
         printf("List is empty !!\n");
-        return head;
+        return *head;
     }
 
     // condition for case when there is only a single node in the list
-    if(head->link == NULL) {
-        free(head);
-        head = NULL;
+    if((*head)->link == NULL) {
+        free(*head);
+        *head = NULL;
         tail = NULL;
         printf("List is empty now !!\n");
-        return head;
+        return tail;
     }
 
-    struct node *temp = head;
+    struct node *temp = *head;
     while(temp->link->link != NULL) {
         temp = temp->link;
     }
 
-    free(temp->link);
+    free(tail);
     temp->link = NULL;
     
-    // to store the address of second last node, after deleting the last node, in tail pointer
-    tail = temp;
-
-    return head;
+    return temp;
 }
-
 
 // O(n) - linear time
 struct node *del_at_pos(struct node *head, int pos) {
