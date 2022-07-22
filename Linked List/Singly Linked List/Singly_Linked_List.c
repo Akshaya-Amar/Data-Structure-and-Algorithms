@@ -27,17 +27,14 @@ int main() {
     int choice, pos;
 
     while(1) {
+
         // for linux users
-        system("read -r -p \"\nPress any key to continue...\" key\n");
         system("clear");
-
-        /*
-        For windows users
-        // system("pause");
+        
+        // For windows users
         // system("cls");
-        */
 
-        printf("<---------------- Linked List Operations ---------------->\n\n");
+        printf("<---------------- Singly Linked List Operations ---------------->\n\n");
         printf("Enter a choice:\n\n");
         printf("1. Insert a new node at beginning.\n");
         printf("2. Insert a new node at the end.\n");
@@ -81,7 +78,7 @@ int main() {
             break;
 
             case 4: 
-            head = del_at_beg(head);    
+            head = del_at_beg(head);  
             if(head != NULL) {
                 display(head);
             }
@@ -107,7 +104,6 @@ int main() {
 
             case 7:
             head = del_list(head);
-            tail = NULL;
             break;
 
             case 8:
@@ -125,12 +121,17 @@ int main() {
 
             case 11:
             system("clear");
-            // system("cls"); // for windows users
             exit(0);
 
             default:
             printf("Not a valid choice.\n");
         }
+
+        // for linux users
+        system("read -r -p \"\nPress any key to continue...\" key\n");
+
+        // For windows users
+        // system("pause");
     }
 
     return 0;
@@ -211,23 +212,18 @@ struct node *del_at_beg(struct node *head) {
 
     if(head == NULL) {
         printf("List is empty !!\n");
-        tail = NULL;
-        return head;
-    }
-
-    // condition for case when there is only one node in the list
-    if(head->link == NULL) {
-        free(head);
-        head = NULL;
-        tail = NULL;
-        printf("List is empty now !!\n");
         return head;
     }
 
     struct node *temp = head;
     head = head->link;
     free(temp);
-    
+
+    if(head == NULL) {
+        printf("List is empty now !!\n");
+        tail = NULL;
+    }
+
     return head;
 }
 
@@ -236,7 +232,6 @@ struct node *del_at_end(struct node *head) {
 
     if(head == NULL) {
         printf("List is empty !!\n");
-        tail = NULL;
         return head;
     }
 
@@ -257,6 +252,7 @@ struct node *del_at_end(struct node *head) {
     free(temp->link);
     temp->link = NULL;
     
+    // to store the address of second last node, after deleting the last node, in tail pointer
     tail = temp;
 
     return head;
@@ -268,7 +264,6 @@ struct node *del_at_pos(struct node *head, int pos) {
 
     if(head == NULL) {
         printf("List is empty !!\n");
-        tail = NULL;
         return head;
     }
 
@@ -292,35 +287,36 @@ struct node *del_at_pos(struct node *head, int pos) {
         return head;
     }
 
-    // to store the address of the second last node, after deleting the last node, in tail pointer
-    if(temp->link->link == NULL) {
-        tail = temp;
-    }
-
     struct node *ptr = temp->link->link;
     free(temp->link);
     temp->link = ptr;
+
+    // to store the address of second last node, if it was the last node which was deleted, in tail pointer
+    if(temp->link == NULL) {
+        tail = temp;
+    }
 
     return head;
 }
 
 // O(n) - linear time
 struct node *del_list(struct node *head) {
-
+    
     if(head == NULL) {
         printf("List is empty !!\n");
-        tail = NULL;
         return head;
     }
 
     struct node *temp = head;
-    while(temp != NULL) {
-        temp = temp->link;
-        free(head);
-        head = temp;
+    while(head != NULL) {
+        head = head->link;
+        free(temp);
+        temp = head;
     }
 
     tail = NULL;
+
+    printf("List is empty now !!\n");
     return head;
 }
 
