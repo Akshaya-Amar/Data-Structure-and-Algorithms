@@ -17,6 +17,7 @@ struct node *delete_at_end(struct node**);
 struct node *delete_at_pos(struct node*);
 void display(struct node*);
 
+// tail pointer to keep track of the last node ,so as to insert nodes at the end in constant time
 struct node *tail = NULL;
 
 int main() {
@@ -25,7 +26,11 @@ int main() {
     int choice;
 
     while(1){
+        // for linux users
         system("clear");
+        
+        // For windows users
+        // system("cls");
         printf("<---------------- Doubly Linked List Operations ---------------->\n\n");
         printf("Enter a choice:\n\n");
         printf("1. Insert a new node at beginning.\n");
@@ -99,7 +104,11 @@ int main() {
             printf("Invalid choice\n");
         }
 
+        // for linux users
         system("read -r -p \"\nPress Enter key to continue...\" key\n");
+
+        // For windows users
+        // system("pause");
     }
 
     return 0;

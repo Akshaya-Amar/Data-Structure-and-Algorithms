@@ -128,7 +128,7 @@ int main() {
         }
 
         // for linux users
-        system("read -r -p \"\nPress any key to continue...\" key\n");
+        system("read -r -p \"\nPress Enter key to continue...\" key\n");
 
         // For windows users
         // system("pause");

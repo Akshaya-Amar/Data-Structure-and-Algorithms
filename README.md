@@ -35,8 +35,9 @@
 |4.|Insertion after specific position|O(n)|
 |5.|Insertion before specific position|O(n)|
 |6.|Deletion at beginning|O(1)|
-|7.|Deletion at end|O(n)|
+|7.|Deletion at end|O(1)|
 |8.|Deletion at specific position|O(n)|
+|9.|Display data of all nodes|O(n)|
 
 <br>
 
