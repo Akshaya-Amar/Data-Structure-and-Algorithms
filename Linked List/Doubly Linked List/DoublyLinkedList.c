@@ -105,6 +105,7 @@ int main() {
     return 0;
 }
 
+// O(1) - constant time
 struct node *createNode() {
 
     struct node *newNode = (struct node*)malloc(sizeof(struct node));
@@ -116,6 +117,7 @@ struct node *createNode() {
     return newNode;
 }
 
+// O(1) - constant time
 struct node *insert_at_start(struct node *head) {
 
     struct node *newNode = createNode();
@@ -131,6 +133,7 @@ struct node *insert_at_start(struct node *head) {
     return newNode;
 }
 
+// O(1) - constant time
 struct node *insert_at_end(struct node *tail) {
 
     struct node *newNode = createNode();
@@ -183,7 +186,7 @@ struct node *insert_after_pos(struct node *head) {
     newNode->prev = temp;
     newNode->next = temp2;*/
 
-    // OR without using extra temp2
+    // without using extra temp2
     newNode->prev = temp;
     newNode->next = temp->next;
     temp->next = newNode;
@@ -386,5 +389,4 @@ void display(struct node *head) {
     }   
 
     printf("\n");
-
 }

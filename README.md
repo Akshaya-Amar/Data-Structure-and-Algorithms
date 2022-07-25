@@ -4,6 +4,7 @@
 
 ### Linked List<br>
 * [Singly Linked List](https://github.com/Akshaya-Amar/Data-Structure-and-Algorithms#singly-linked-list)
+* [Doubly Linked List](https://github.com/Akshaya-Amar/Data-Structure-and-Algorithms#doubly-linked-list)
 
 ## Singly Linked List
 **[Program](./Linked%20List/Singly%20Linked%20List/Singly_Linked_List.c)** <br>
@@ -22,5 +23,21 @@
 |10.|Display data of all nodes|O(n)|
 |11.|Count nodes|O(n)|
 
+
+## Doubly Linked List
+**[Program](./Linked%20List/Doubly%20Linked%20List/DoublyLinkedList.c)** <br>
+
+| # | Operations | Time Complexity |
+|:---:| ----- | :--------: |
+|1.|Create Node|O(1)|
+|2.|Insertion at beginning|O(1)|
+|3.|Insertion at end|O(1)|
+|4.|Insertion after specific position|O(n)|
+|5.|Insertion before specific position|O(n)|
+|6.|Deletion at beginning|O(1)|
+|7.|Deletion at end|O(n)|
+|8.|Deletion at specific position|O(n)|
+
+<br>
 
 **Will keep adding more programs.**
